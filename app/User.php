@@ -56,9 +56,11 @@ class User extends Authenticatable
             ->latest();
     }
 
-    public function profilePath()
+    public function profilePath($append = '')
     {
-        return route('profile' , $this->name); 
+        $path = route('profile' , $this->name);
+
+        return $append ? "{$path}/{$append}" : $path;
     }
 
 }
