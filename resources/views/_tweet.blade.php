@@ -20,5 +20,8 @@
         <p class="text-5">
           {{ $tweet->body }}
         </p>
+        @auth
+            <x-like-buttons :tweet="$tweet" />
+        @endauth
     </div>
 </div>
