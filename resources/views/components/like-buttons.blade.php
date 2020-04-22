@@ -25,7 +25,7 @@
             <button type="submit"
                     class="text-xs"
             >
-                {{ $tweet->likes ?: 0 }}
+                {{ $tweet->likes_count ?: 0 }}
             </button>
         </div>
     </form>
@@ -57,7 +57,7 @@
             <button type="submit"
                     class="text-xs"
             >
-                {{ $tweet->dislikes ?: 0 }}
+                {{ $tweet->dislikes_count ?: 0 }}
             </button>
         </div>
     </form>

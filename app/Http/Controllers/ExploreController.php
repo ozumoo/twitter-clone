@@ -9,8 +9,13 @@ class ExploreController extends Controller
 {
     public function __invoke()
     {
-    	return view('explore' , [
-    		'users' => User::paginate(50)
-    	]);
-    }
+    	$users = User::with('tweets')
+    		->whereNotIn(
+    			'id' , auth()->user()->follows()->pluck('id')
+    			->prepend(auth()->user()->id)
+    		)
+    		->paginate(15);
+
+    	return view('explore' , ['users' =>  $users]);
+    }	
 }

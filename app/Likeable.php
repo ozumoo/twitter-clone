@@ -41,6 +41,11 @@ trait Likeable {
 
 	public function likes()
 	{
-	    return $this->hasMany(Like::class);
+	    return $this->hasMany(Like::class)->where('liked' ,  true);
+	}
+
+	public function dislikes()
+	{
+	    return $this->hasMany(Like::class)->where('liked' ,  false);
 	}
 }
